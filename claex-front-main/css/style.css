@@ -1404,3 +1404,108 @@ footer {
     background: var(--neon-lime);
     box-shadow: 0 0 8px var(--neon-lime);
 }
+
+/* ==========================================================================
+   PORTABILIDADE MOBILE (SMARTPHONES ≤ 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* Header Flutuante e Navegação */
+    header {
+        width: calc(100% - 24px);
+        padding: 8px 16px;
+        top: 10px;
+    }
+
+    .dock-links, 
+    .brand-telemetry {
+        display: none !important; /* Esconde navegação desktop no celular */
+    }
+
+    .brand-logo {
+        font-size: 1.3rem;
+    }
+
+    .header-actions .btn-ghost, 
+    .header-actions .btn-neon {
+        padding: 6px 12px;
+        font-size: 0.75rem;
+    }
+
+    /* Menu Lateral Drawer (Side Menu) */
+    #side-menu {
+        width: 85vw;
+        left: -85vw;
+    }
+
+    /* Hero & Simulador Interativo */
+    #capa_index, 
+    .hero-section {
+        flex-direction: column;
+        padding: 20px 16px 40px;
+        min-height: auto;
+        gap: 32px;
+    }
+
+    .hero-title {
+        font-size: 2.1rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .hero-stats {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .sim-grid {
+        grid-template-columns: 1fr; /* Empilha os slots do simulador */
+    }
+
+    /* Formulários, Login e Configurações */
+    #sect_login, 
+    #form_nova_sala {
+        padding: 24px 16px;
+        margin: 16px auto;
+        width: 100%;
+    }
+
+    .form-grid, 
+    .aulas {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Tabelas e Matriz de Horários (Touch-friendly Horizontal Scroll) */
+    #grade_aula, 
+    .table-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        width: 100%;
+    }
+
+    #grade_aula table, 
+    .table-wrap table {
+        min-width: 580px; /* Mantém a estrutura da grade legível com rolagem */
+    }
+
+    #grade_aula thead th, 
+    #grade_aula tbody td, 
+    tbody td {
+        padding: 10px 8px;
+        font-size: 0.75rem;
+    }
+
+    /* Otimização de Alvos de Toque (Touch Targets) */
+    button, 
+    input, 
+    select, 
+    .side-link {
+        min-height: 44px; /* Padrão mínimo para toque mobile */
+    }
+
+    .telemetry-cursor-dot, 
+    .telemetry-cursor-ring {
+        display: none !important; /* Desativa cursor customizado em telas touch */
+    }
+}
