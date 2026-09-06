@@ -1405,107 +1405,66 @@ footer {
     box-shadow: 0 0 8px var(--neon-lime);
 }
 
-/* ==========================================================================
-   PORTABILIDADE MOBILE (SMARTPHONES ≤ 768px)
-   ========================================================================== */
 @media (max-width: 768px) {
-    /* Header Flutuante e Navegação */
-    header {
-        width: calc(100% - 24px);
-        padding: 8px 16px;
-        top: 10px;
+    /* Libera a exibição do menu lateral */
+    .menu-overlay.open {
+        display: block !important;
     }
 
+    /* Redimensiona o cabeçalho flutuante */
+    header {
+        width: calc(100% - 24px) !important;
+        padding: 8px 16px !important;
+    }
+
+    /* Esconde links do topo e mantém apenas o hambúrguer */
     .dock-links, 
     .brand-telemetry {
-        display: none !important; /* Esconde navegação desktop no celular */
+        display: none !important;
     }
 
-    .brand-logo {
-        font-size: 1.3rem;
-    }
-
-    .header-actions .btn-ghost, 
-    .header-actions .btn-neon {
-        padding: 6px 12px;
-        font-size: 0.75rem;
-    }
-
-    /* Menu Lateral Drawer (Side Menu) */
+    /* Ajusta a largura da gaveta de navegação */
     #side-menu {
-        width: 85vw;
+        width: 85vw !important;
         left: -85vw;
     }
 
-    /* Hero & Simulador Interativo */
+    #side-menu.open {
+        left: 0 !important;
+    }
+
+    /* Empilha seções do Hero e telas de Login */
     #capa_index, 
-    .hero-section {
-        flex-direction: column;
-        padding: 20px 16px 40px;
-        min-height: auto;
-        gap: 32px;
+    .hero-section, 
+    #sect_login {
+        flex-direction: column !important;
+        padding: 20px 16px !important;
+        gap: 24px !important;
     }
 
-    .hero-title {
-        font-size: 2.1rem;
-    }
-
-    .hero-subtitle {
-        font-size: 0.95rem;
-    }
-
-    .hero-stats {
-        flex-direction: column;
-        gap: 16px;
-    }
-
-    .sim-grid {
-        grid-template-columns: 1fr; /* Empilha os slots do simulador */
-    }
-
-    /* Formulários, Login e Configurações */
-    #sect_login, 
-    #form_nova_sala {
-        padding: 24px 16px;
-        margin: 16px auto;
-        width: 100%;
-    }
-
+    /* Converte grids em coluna única */
+    .bento-grid, 
+    .sim-grid, 
     .form-grid, 
     .aulas {
         grid-template-columns: 1fr !important;
     }
 
-    /* Tabelas e Matriz de Horários (Touch-friendly Horizontal Scroll) */
+    .col-span-8, .col-span-7, .col-span-6, .col-span-5, .col-span-4 {
+        grid-column: span 12 !important;
+    }
+
+    /* Permite rolagem lateral suave nas tabelas */
     #grade_aula, 
     .table-wrap {
-        overflow-x: auto;
+        overflow-x: auto !important;
         -webkit-overflow-scrolling: touch;
-        width: 100%;
+        display: block !important;
+        width: 100% !important;
     }
 
     #grade_aula table, 
     .table-wrap table {
-        min-width: 580px; /* Mantém a estrutura da grade legível com rolagem */
-    }
-
-    #grade_aula thead th, 
-    #grade_aula tbody td, 
-    tbody td {
-        padding: 10px 8px;
-        font-size: 0.75rem;
-    }
-
-    /* Otimização de Alvos de Toque (Touch Targets) */
-    button, 
-    input, 
-    select, 
-    .side-link {
-        min-height: 44px; /* Padrão mínimo para toque mobile */
-    }
-
-    .telemetry-cursor-dot, 
-    .telemetry-cursor-ring {
-        display: none !important; /* Desativa cursor customizado em telas touch */
+        min-width: 580px !important;
     }
 }
